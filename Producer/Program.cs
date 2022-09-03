@@ -15,15 +15,34 @@ try
 
     string? state;
 
-    while ((state = Console.ReadLine()) != null)
+    Console.WriteLine("Please Create a Monster!");
+
+    Console.WriteLine(args);
+    while (true)
     {
+        var smarts = int.Parse(Console.ReadLine());
+        var vitlity = int.Parse(Console.ReadLine());
+        var strength = int.Parse(Console.ReadLine());
+        var agility = int.Parse(Console.ReadLine());
+        var name = Console.ReadLine();
+
         var response =
             await producer.ProduceAsync(
                 "Kefka", new Message<Null, string>
                 {
-                    Value = JsonConvert.SerializeObject(new Monster(11, 21, 13, 9, "Slime"))
+                    Value = JsonConvert.SerializeObject(
+                        new Monster(
+                            smarts,
+                            vitlity,
+                            strength,
+                            agility,
+                            name
+                            )
+                        )
                 }
             );
+
+        Console.WriteLine(response);
 
     }
 }
