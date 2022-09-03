@@ -13,4 +13,10 @@
 		<PackageReference Include="Confluent.Kafka" Version="1.9.2" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 	</ItemGroup>
+
+
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Shared\Shared.csproj" />
+	</ItemGroup>
 </Project>
