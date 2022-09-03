@@ -25,11 +25,12 @@ try
     while (true)
     {
         var response = consumer.Consume(token.Token);
-        if (response.Message == null)
+        if (response.Message != null)
         {
             var monster = JsonConvert.DeserializeObject<Monster>(response.Message.Value);
-            Console.WriteLine($"a new monster appears: {monster} !!");
+            Console.WriteLine($"a new monster appears: {monster.Name} !!");
         }
+        Console.WriteLine("waiting on new messages. . . ");
     }
 }
 catch (Exception ex)
